@@ -7,6 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-   
+    <div align="right">
+   {% if request.user.is_authenticated %}
+   <a href="/logout">Logout</a>
+   {% else %}
+
+   <form method="POST" action="" >
+    {% csrf_token %}
+        {% for item in forms %}
+            {{item.label }}
+            {{item}}
+            <br>
+        {%endfor%}
+        <button type="submit">Login</button>
+        <b style="color: red;">{{error}}</b>
+    </form>
+   {% endif %}
+</div>
+   <hr>
+{% for i in posts%}
+    <a href="{% url 'post' i.id %}">{{i.name}}</a><br>
+    <a>@{{i.host}}</a>
+{% endfor %}
 </body>
 </html>

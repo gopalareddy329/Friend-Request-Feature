@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    {{post.name}}<br>
-    @{{post.host}}
-    <a href="{% url 'sendreq' post.host.id %}">request friend</a>
+    {{request.user.friendreq.all}}<br>
+    {% for i in frdreq %}
+        {{i.from_user}}<a href="{% url 'accpetreq' i.id %}">Accpet</a>
+        <br>
+    {% endfor %}
 </body>
 </html>

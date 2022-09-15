@@ -9,6 +9,7 @@
 <body>
     <div align="right">
    {% if request.user.is_authenticated %}
+   <a href="{% url 'frdreq' %}">requests</a>
    <a href="/logout">Logout</a>
    {% else %}
 
